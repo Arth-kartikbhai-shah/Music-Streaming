@@ -16,7 +16,7 @@ public class MusicApp {
     public MusicApp() throws IOException {
         db = new DatabaseManager();
         storage = new StorageManager(BUCKET_NAME);
-        player = new MusicPlayer();
+        player = new AdvancedMusicPlayer();
         scanner = new Scanner(System.in);
     }
 

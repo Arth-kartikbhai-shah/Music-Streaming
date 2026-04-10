@@ -6,8 +6,10 @@ public class MusicPlayer {
     private Process process;
     private volatile boolean playing = false;
 
-    public void play(String localFilePath, String songTitle) {
+    protected void play(String localFilePath, String songTitle) {
         stop(); // stop any currently playing song
+
+        beforeplay();
 
         System.out.println("▶️  Now playing: " + songTitle);
 
@@ -49,6 +51,11 @@ public class MusicPlayer {
             System.out.println("❌ Error starting player: " + e.getMessage());
         }
     }
+    
+    protected void beforePlay() {
+        System.out.println("Preparing audio...");
+    }
+
 
     public void stop() {
         if (process != null && process.isAlive()) {
